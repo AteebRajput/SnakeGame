@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>Snake Game</h1>
+    <p>Score: <span id="score"> 0</span></p>
+
+    <div class="btn-group">
+        <button class="btn left" type="button" value="easy">Easy</button>
+        <button class="btn middle" type="button" value="medium">Medium</button>
+        <button class="btn right" type="button" value="hard">Hard</button>
+    </div>
+
+    <div class="board">
+        <div class="row">
+            <div class="box snake" id="00">00</div>
+            <div class="box snake " id="01">01</div>
+            <div class="box " id="02">02</div>
+            <div class="box " id="03">03</div>
+            <div class="box" id="04">04</div>
+            <div class="box" id="05">05</div>
+            <div class="box" id="06">06</div>
+            <div class="box" id="07">07</div>
+            <div class="box" id="08">08</div>
+            <div class="box" id="09">09</div>
+        </div>
+        <div class="row">
+            <div class="box" id="10">10</div>
+            <div class="box" id="11">11</div>
+            <div class="box" id="12">12</div>
+            <div class="box" id="13">13</div>
+            <div class="box" id="14">14</div>
+            <div class="box" id="15">15</div>
+            <div class="box" id="16">16</div>
+            <div class="box" id="17">17</div>
+            <div class="box" id="18">18</div>
+            <div class="box" id="19">19</div>
+        </div>
+        <div class="row">
+            <div class="box" id="20">20</div>
+            <div class="box" id="21">21</div>
+            <div class="box" id="22">22</div>
+            <div class="box" id="23">23</div>
+            <div class="box" id="24">24</div>
+            <div class="box" id="25">25</div>
+            <div class="box" id="26">26</div>
+            <div class="box" id="27">27</div>
+            <div class="box" id="28">28</div>
+            <div class="box" id="29">29</div>
+        </div>
+        <div class="row">
+            <div class="box" id="30">30</div>
+            <div class="box" id="31">31</div>
+            <div class="box" id="32">32</div>
+            <div class="box" id="33">33</div>
+            <div class="box" id="34">34</div>
+            <div class="box" id="35">35</div>
+            <div class="box" id="36">36</div>
+            <div class="box" id="37">37</div>
+            <div class="box" id="38">38</div>
+            <div class="box" id="39">39</div>
+        </div>
+        <div class="row">
+            <div class="box" id="40">40</div>
+            <div class="box" id="41">41</div>
+            <div class="box" id="42">42</div>
+            <div class="box" id="43">43</div>
+            <div class="box" id="44">44</div>
+            <div class="box" id="45">45</div>
+            <div class="box" id="46">46</div>
+            <div class="box" id="47">47</div>
+            <div class="box" id="48">48</div>
+            <div class="box" id="49">49</div>
+        </div>
+        <div class="row">
+            <div class="box" id="50">50</div>
+            <div class="box" id="51">51</div>
+            <div class="box" id="52">52</div>
+            <div class="box" id="53">53</div>
+            <div class="box" id="54">54</div>
+            <div class="box" id="55">55</div>
+            <div class="box" id="56">56</div>
+            <div class="box" id="57">57</div>
+            <div class="box" id="58">58</div>
+            <div class="box" id="59">59</div>
+        </div>
+        <div class="row">
+            <div class="box" id="60">60</div>
+            <div class="box" id="61">61</div>
+            <div class="box" id="62">62</div>
+            <div class="box" id="63">63</div>
+            <div class="box" id="64">64</div>
+            <div class="box" id="65">65</div>
+            <div class="box" id="66">66</div>
+            <div class="box" id="67">67</div>
+            <div class="box" id="68">68</div>
+            <div class="box" id="69">69</div>
+        </div>
+        <div class="row">
+            <div class="box" id="70">70</div>
+            <div class="box" id="71">71</div>
+            <div class="box" id="72">72</div>
+            <div class="box" id="73">73</div>
+            <div class="box" id="74">74</div>
+            <div class="box" id="75">75</div>
+            <div class="box" id="76">76</div>
+            <div class="box" id="77">77</div>
+            <div class="box" id="78">78</div>
+            <div class="box" id="79">79</div>
+        </div>
+        <div class="row">
+            <div class="box" id="80">80</div>
+            <div class="box" id="81">81</div>
+            <div class="box" id="82">82</div>
+            <div class="box" id="83">83</div>
+            <div class="box" id="84">84</div>
+            <div class="box" id="85">85</div>
+            <div class="box" id="86">86</div>
+            <div class="box" id="87">87</div>
+            <div class="box" id="88">88</div>
+            <div class="box" id="89">89</div>
+        </div>
+        <div class="row">
+            <div class="box" id="90">90</div>
+            <div class="box" id="91">91</div>
+            <div class="box" id="92">92</div>
+            <div class="box" id="93">93</div>
+            <div class="box" id="94">94</div>
+            <div class="box" id="95">95</div>
+            <div class="box" id="96">96</div>
+            <div class="box" id="97">97</div>
+            <div class="box" id="98">98</div>
+            <div class="box" id="99">99</div>
+        </div>
+<button class="playBtn" id="playBtn">
+  <span>PLAY NOW</span>
+</button>
+    </div>
+
+    <div class="card" id="gameover">
+        <div class="card-body">
+            <button class="close" id="close"><i class="fa-solid fa-xmark"></i></button>
+            <h1>Game Over <i class="fa-regular fa-face-frown"></i></h1>
+            <p>Your score is : <span id="endscore">0</span></p>
+            <button class="button" id="startBtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                    <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill="none"
+                            d="M12.75 6V3.75H11.25V6L9 6C6.10051 6 3.75 8.3505 3.75 11.25V17.909C3.75 19.2019 4.7981 20.25 6.09099 20.25C6.71186 20.25 7.3073 20.0034 7.74632 19.5643L10.8107 16.5H13.1893L16.2537 19.5643C16.6927 20.0034 17.2881 20.25 17.909 20.25C19.2019 20.25 20.25 19.2019 20.25 17.909V11.25C20.25 8.3505 17.8995 6 15 6L12.75 6ZM18.75 11.25C18.75 9.17893 17.0711 7.5 15 7.5L9 7.5C6.92893 7.5 5.25 9.17893 5.25 11.25V17.909C5.25 18.3735 5.62652 18.75 6.09099 18.75C6.31403 18.75 6.52794 18.6614 6.68566 18.5037L10.1893 15H13.8107L17.3143 18.5037C17.4721 18.6614 17.686 18.75 17.909 18.75C18.3735 18.75 18.75 18.3735 18.75 17.909V11.25ZM6.75 12.75V11.25H8.25V9.75H9.75V11.25H11.25V12.75H9.75V14.25H8.25V12.75H6.75ZM15 10.875C15 11.4963 14.4963 12 13.875 12C13.2537 12 12.75 11.4963 12.75 10.875C12.75 10.2537 13.2537 9.75 13.875 9.75C14.4963 9.75 15 10.2537 15 10.875ZM16.125 14.25C16.7463 14.25 17.25 13.7463 17.25 13.125C17.25 12.5037 16.7463 12 16.125 12C15.5037 12 15 12.5037 15 13.125C15 13.7463 15.5037 14.25 16.125 14.25Z"
+                            clip-rule="evenodd" fill-rule="evenodd"></path>
+                    </g>
+                </svg><span>Play </span></button>
+        </div>
+    </div>
+    <script src="./script.js">
+    </script>
+</body>
+
+</html>
