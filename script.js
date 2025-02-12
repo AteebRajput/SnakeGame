@@ -48,6 +48,7 @@ let scoreCard = [
 //                  All Functions
 // ============================================================================
 
+// Function to show snake 
 const showSnake = () => {
     const allBoxes = document.querySelectorAll('.box');
     allBoxes.forEach(box => {
@@ -71,8 +72,10 @@ const updateScore = () => {
     score.innerText = `${totalScore}`;
 };
 
+// Function to move snake in all direction
 const moveSnake = () => {
-    if (gameOver) return;
+    if (gameOver)
+        return;
 
     for (let i = 0; i < snakeBody.length - 1; i++) {
         snakeBody[i] = snakeBody[i + 1];
@@ -109,6 +112,7 @@ const moveSnake = () => {
     consumeFood();
 };
 
+// Function to generate random ID for placing good
 const getRandomNumber = (exclude = []) => {
     let randomNumber;
     do {
@@ -119,6 +123,8 @@ const getRandomNumber = (exclude = []) => {
     foodID = randomNumber;
 };
 
+
+// Function to consume food and increase length of snake
 const consumeFood = () => {
     if (snakeBody.includes(foodID)) {
         updateScore();
@@ -135,6 +141,8 @@ const consumeFood = () => {
     }
 };
 
+
+// Function to End Game
 const endGame = () => {
     gameOver = true;
     clearInterval(interval);
@@ -142,6 +150,7 @@ const endGame = () => {
     gameCard.className =  "card show"
 };
 
+// Function to start game and set initial stage
 const startGame = () => {
     snakeBody = ['00', '10', '20', '30'];
     direction = 'right';
@@ -154,55 +163,67 @@ const startGame = () => {
     interval = setInterval(moveSnake, levelSpeeds[currentLevel]);
 };
 
+
 // ============================================================================
 //                  All Event Listeners
 // ============================================================================
 
+
+// Event Listener to get keys for moving snake
 window.addEventListener("keydown", (e) => {
     if (gameOver) return;
 
     switch (e.key) {
         case "ArrowUp":
         case "w":
-            if (direction !== "down") direction = "up";
+            if (direction !== "down") 
+                direction = "up";
             break;
         case "ArrowDown":
         case "s":
-            if (direction !== "up") direction = "down";
+            if (direction !== "up") 
+                direction = "down";
             break;
         case "ArrowLeft":
         case "a":
-            if (direction !== "right") direction = "left";
+            if (direction !== "right") 
+                direction = "left";
             break;
         case "ArrowRight":
         case "d":
-            if (direction !== "left") direction = "right";
+            if (direction !== "left") 
+                direction = "right";
             break;
     }
 });
 
+// This Event listener is for setting level
 buttons.forEach(button => {
     button.addEventListener("click", (e) => {
-        if (!gameOver) return; // Allow changing level only when the game is over
+        // Allow changing level only when the game is over
+        if (!gameOver) 
+            return; 
         currentLevel = e.target.value;
-        // startGame(); // Start the game with the selected difficulty level
+        
     });
 });
 
+// Event listener to close GameOver Card
 closeBtn.addEventListener("click" , e => {
     gameCard.className = "card"
 })
 
+// This is for play again btn
 startBtn.addEventListener("click" , e => {
     gameCard.className = "card"
     startGame()
 
 })
+
+// this event listener os for starting game initially
 playBtn.addEventListener("click" , e => {
     startGame()
 })
 
-// ============================================================================
-//                  Init
-// ============================================================================
 
+showSnake()
